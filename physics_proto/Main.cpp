@@ -1,8 +1,10 @@
+#include <cmath>
 #include <corecrt_math.h>
 #include <iostream>
 #include <fstream>
 #include <time.h>
 #include "Vector.hpp"
+
 
 int main()
 {
@@ -13,11 +15,12 @@ int main()
   
    
     Vector2 acc;
-    Vector2 force = {100, 100};
-    Vector2 v0 = {1200, 150};
+    Vector2 velocity = {100, 150};
+    Vector2 v0 = {100, 150};
     Vector2 gravity;
-    gravity.y = -9.81f;
-    gravity.x = 1.f;
+    Vector2 drag;
+    gravity.y = -9.82f;
+    
 
     Vector2 grav = Vector2(0.0f, -9.82f);
     Vector2 v = v0;//Vector2(0.0f, 0.0f);
@@ -25,35 +28,41 @@ int main()
 
     Vector2 startPos;
     Vector2 pos;
-
+    float h;
     std::string content;
 
     std::ofstream csv_file("whatever.csv");
     csv_file << "time," <<  "X," <<  " Y" <<  "\n";
     
-    while (t < 10) {    
-        
+    while (t < 16) {    
+
         // Förlag 1: 
-        //pos = startPos + (v0*t) + (gravity * powf(t, t)/2.f); 
-        //pos = startPos + (v0*t) + (gravity ); 
         
-        //Beräkna accelleration
-        //acc = ((gravity)/mass);
+        //acc = (force_grav)/mass;
 
-        //Beräkna hastigheten
-        //v0 = acc * t;
-        //v0 = v0 + acc * t;
+        //v = v+acc*t;
 
-        //Beräkna pos
-        //pos = pos + v0 * t;
+        //pos = pos + v*t;
 
-        // Förlag 2: 
-        Vector2 temp = force_grav;
-        acc = (temp)/mass;
+        //Förslag 2:
+        //pos = pos + v*t;
 
-        v = v+acc*t;
+        //acc = (force_grav)/mass;
 
-        pos = pos + v*t;
+        //v = v+acc*t;
+
+        //Förslag 3:
+        // v.x = v0.x;
+        //v.y = gravity.y*t;
+        //pos = v*t; 
+    
+        //Förslag Kaströrelse:
+        float angle = 3.14/6;
+        pos.x = v0.x*cos(angle)*t;
+        pos.y = (v0.y*sin(angle))*t - (9.82*pow(t,2))/2;
+        
+
+
 
          std::cout <<  "X:" << pos.x << " Y:" << pos.y << "\n";
 

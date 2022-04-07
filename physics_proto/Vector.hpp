@@ -74,6 +74,15 @@ struct Vector2 {
 
 		return ret;
 	}
+
+	Vector2 operator*(const double& other)
+	{
+		Vector2 ret;
+		ret.x =  this->x * other;
+		ret.y =  this->y * other;
+
+		return ret;
+	}
 };
 
 struct Vector3 {
@@ -105,5 +114,14 @@ struct Vector3 {
 		y -= other.y;
 		z -= other.z;
 		return *this;
+	}
+
+	Vector3 operator+(const Vector3& other)
+	{
+		Vector3 ret;
+		ret.x =  this->x + other.x;
+		ret.y =  this->y + other.y;
+		ret.z = this->z + other.z;
+		return ret;
 	}
 };
