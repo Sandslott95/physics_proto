@@ -4,11 +4,11 @@
 #include <fstream>
 #include <time.h>
 #include "Vector.hpp"
+#include "Helper.h"
 
 
 int main()
 {
-    
     float mass = 2.f;
     const double a = -9.81; 
     int t = 0;
