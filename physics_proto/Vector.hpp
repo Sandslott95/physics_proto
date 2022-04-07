@@ -109,11 +109,94 @@ struct Vector3 {
 		return sqrtf(x * x + y * y + z * z);
 	}
 
-	Vector3& operator-=(const Vector3& other) {
-		x -= other.x;
-		y -= other.y;
-		z -= other.z;
-		return *this;
+	Vector3 operator-=(const Vector3& other) {
+		Vector3 ret;
+		ret.x -= other.x;
+		ret.y -= other.y;
+		ret.z -= other.z;
+		return ret;
+	}
+
+	Vector3 operator+=(const Vector3& other) {
+		Vector3 ret;
+		ret.x += other.x;
+		ret.y += other.y;
+		ret.z += other.z;
+		return ret;
+	}
+
+	Vector3 operator*=(const Vector3& other) {
+		Vector3 ret;
+		ret.x *= other.x;
+		ret.y *= other.y;
+		ret.z *= other.z;
+		return ret;
+	}
+
+	Vector3 operator/=(const Vector3& other) {
+		Vector3 ret;
+		ret.x /= other.x;
+		ret.y /= other.y;
+		ret.z /= other.z;
+		return ret;
+	}
+
+	Vector3 operator-=(const float& other) {
+		Vector3 ret;
+		ret.x -= other;
+		ret.y -= other;
+		ret.z -= other;
+		return ret;
+	}
+	Vector3 operator+=(const float& other) {
+		Vector3 ret;
+		ret.x += other;
+		ret.y += other;
+		ret.z += other;
+		return ret;
+	}
+	Vector3 operator*=(const float& other) {
+		Vector3 ret;
+		ret.x *= other;
+		ret.y *= other;
+		ret.z *= other;
+		return ret;
+	}
+	Vector3 operator/=(const float& other) {
+		Vector3 ret;
+		ret.x /= other;
+		ret.y /= other;
+		ret.z /= other;
+		return ret;
+	}
+
+	Vector3 operator-=(const int& other) {
+		Vector3 ret;
+		ret.x -= other;
+		ret.y -= other;
+		ret.z -= other;
+		return ret;
+	}
+	Vector3 operator+=(const int& other) {
+		Vector3 ret;
+		ret.x += other;
+		ret.y += other;
+		ret.z += other;
+		return ret;
+	}
+	Vector3 operator*=(const int& other) {
+		Vector3 ret;
+		ret.x *= other;
+		ret.y *= other;
+		ret.z *= other;
+		return ret;
+	}
+	Vector3 operator/=(const int& other) {
+		Vector3 ret;
+		ret.x /= other;
+		ret.y /= other;
+		ret.z /= other;
+		return ret;
 	}
 
 	Vector3 operator+(const Vector3& other)

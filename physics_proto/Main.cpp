@@ -33,9 +33,9 @@ int main()
 
     std::ofstream csv_file("whatever.csv");
     csv_file << "time," <<  "X," <<  " Y" <<  "\n";
-    
-    while (t < 16) {    
-
+    //Jag testar att göra en ändring här
+    while (t < 10) {    
+        
         // Förlag 1: 
         
         //acc = (force_grav)/mass;
