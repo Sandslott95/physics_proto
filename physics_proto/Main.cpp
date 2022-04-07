@@ -30,7 +30,7 @@ int main()
 
     std::ofstream csv_file("whatever.csv");
     csv_file << "time," <<  "X," <<  " Y" <<  "\n";
-    
+    //Jag testar att göra en ändring här
     while (t < 10) {    
         
         // Förlag 1: 
