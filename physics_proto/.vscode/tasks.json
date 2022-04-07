@@ -1,0 +1,51 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+
+        
+        {
+            "type": "shell",
+            "label": "Gen_graph",
+            "command": "neato -n -Tpng -o graph.png graph.dot",
+            "args": [               
+            ],
+            
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "run the make file"
+        },
+        {
+            "type": "shell",
+            "label": "compile",
+            "command": "clang++ -w -std=c++17 *.cpp -ogen_test",
+            "args": [               
+            ],
+            
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "run the make file"
+        },
+        {
+            "type": "shell",
+            "label": "clang++ build active file",
+            "command": "clang++",
+            "args": [
+                "-std=c++17",
+                "-stdlib=libc++",
+                "-g",
+                "${workspaceFolder}/*.cpp",
+                "-o",
+                "gen_test"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "group": "build"
+        }
+        
+    ]
+}
