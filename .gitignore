@@ -361,3 +361,8 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+physics_proto/.~lock.nordström.ods#
+
+physics_proto/gen_test
+
+physics_proto/the_spreadsheet.ods
