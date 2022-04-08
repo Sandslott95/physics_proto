@@ -6,12 +6,6 @@
 #include "Vector.hpp"
 #include "Helper.h"
 
-float degreeToRadiant(float degree)
-{
-    double pi = 3.14159265359;
-    return (degree * (pi / 180));
-} 
-
 
 int main()
 {
