@@ -12,6 +12,8 @@ float time = 0;
 float t1, t2;
 float deltlaT = 1;
 
+bool grounded = false;
+
 float mass = 50.0f;
 Vector3 jumpSpeed = Vector3(0.0f, 20.0f, 0.0f);
 Vector3 gravityAcceleration = Vector3(0.0f, -9.82f, 0.0f);
@@ -40,7 +42,9 @@ void Run(std::ofstream& csv_file){
         if(time == 8 || time == 13){
             Jump();
         }
-        Update(deltlaT);
+        if(!grounded){
+            Update(deltlaT);
+        }
 
         WriteToFile(csv_file);
         time++;
@@ -50,7 +54,6 @@ void Run(std::ofstream& csv_file){
 void WriteToFile(std::ofstream& csv_file){
     csv_file << time << "," <<  position.x << "," << position.y << "\n";
 }
-
 void Jump(){
     if(velocity.y > 0){
         velocity += jumpSpeed;
@@ -85,11 +88,9 @@ void Update(float deltaT){
     position = position + velocity * deltaT;
 
 }
-
 Vector3 GetPos(){
     return position;
 }
-
 Vector3 GetPushVector(Vector3 enemyPos, Vector3 playerPos){
     return playerPos-enemyPos;
 }
