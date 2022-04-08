@@ -1,5 +1,9 @@
-#include "Vector.hpp"
+#pragma once
 
+#include "Vector.hpp"
+#include "Helper.h"
+
+struct tets{
 float mass = 50.0f;
 Vector3 jumpSpeed = Vector3(0.0f, 5.0f, 0.0f);
 Vector3 gravityAcceleration = Vector3(0.0f, -9.82f, 0.0f);
@@ -39,3 +43,5 @@ void Update(float deltaT){
 Vector3 GetPos(){
     return position;
 }
+};
+
