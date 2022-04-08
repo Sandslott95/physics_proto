@@ -9,9 +9,10 @@
 struct test{
 
 float time = 0;
+float deltlaT = 1;
 
 float mass = 50.0f;
-Vector3 jumpSpeed = Vector3(0.0f, 500.0f, 0.0f);
+Vector3 jumpSpeed = Vector3(0.0f, 20.0f, 0.0f);
 Vector3 gravityAcceleration = Vector3(0.0f, -9.82f, 0.0f);
 Vector3 acceleration;
 Vector3 velocity;
@@ -32,13 +33,13 @@ void Start(){
 
 }
 void Run(std::ofstream& csv_file){
-    SetVelocity(Vector3(1000.0f, 1000.0f, 0.0f));
-    while(time < 16){
+    SetVelocity(Vector3(60.0f, 60.0f, 0.0f));
+    while(time < 21){
 
-        if(time == 7){
-            //Jump();
+        if(time == 8 || time == 13){
+            Jump();
         }
-        Update(time);
+        Update(deltlaT);
 
         WriteToFile(csv_file);
         time++;
@@ -50,7 +51,12 @@ void WriteToFile(std::ofstream& csv_file){
 }
 
 void Jump(){
-    velocity += jumpSpeed;
+    if(velocity.y > 0){
+        velocity += jumpSpeed;
+    }
+    else{
+        velocity = Vector3(velocity.x, jumpSpeed.y, velocity.z);
+    }
 }
 void SetVelocity(Vector3 v){
     velocity = v;
