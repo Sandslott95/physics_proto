@@ -111,100 +111,172 @@ struct Vector3 {
 
 	Vector3 operator-=(const Vector3& other) {
 		Vector3 ret;
-		ret.x -= other.x;
-		ret.y -= other.y;
-		ret.z -= other.z;
+		ret.x = this->x - other.x;
+		ret.y = this->y -other.y;
+		ret.z = this->z -other.z;
 		return ret;
 	}
-
 	Vector3 operator+=(const Vector3& other) {
 		Vector3 ret;
-		ret.x += other.x;
-		ret.y += other.y;
-		ret.z += other.z;
+		ret.x = this->x + other.x;
+		ret.y = this->y +other.y;
+		ret.z = this->z +other.z;
 		return ret;
 	}
-
 	Vector3 operator*=(const Vector3& other) {
 		Vector3 ret;
-		ret.x *= other.x;
-		ret.y *= other.y;
-		ret.z *= other.z;
+		ret.x = this->x * other.x;
+		ret.y = this->y *other.y;
+		ret.z = this->z *other.z;
 		return ret;
 	}
-
 	Vector3 operator/=(const Vector3& other) {
 		Vector3 ret;
-		ret.x /= other.x;
-		ret.y /= other.y;
-		ret.z /= other.z;
+		ret.x = this->x / other.x;
+		ret.y = this->y /other.y;
+		ret.z = this->z /other.z;
 		return ret;
 	}
-
 	Vector3 operator-=(const float& other) {
 		Vector3 ret;
-		ret.x -= other;
-		ret.y -= other;
-		ret.z -= other;
+		ret.x = this->x - other;
+		ret.y = this->y -other;
+		ret.z = this->z -other;
 		return ret;
 	}
 	Vector3 operator+=(const float& other) {
 		Vector3 ret;
-		ret.x += other;
-		ret.y += other;
-		ret.z += other;
+		ret.x = this->x + other;
+		ret.y = this->y +other;
+		ret.z = this->z +other;
 		return ret;
 	}
 	Vector3 operator*=(const float& other) {
 		Vector3 ret;
-		ret.x *= other;
-		ret.y *= other;
-		ret.z *= other;
+		ret.x = this->x * other;
+		ret.y = this->y *other;
+		ret.z = this->z *other;
 		return ret;
 	}
 	Vector3 operator/=(const float& other) {
 		Vector3 ret;
-		ret.x /= other;
-		ret.y /= other;
-		ret.z /= other;
+		ret.x = this->x / other;
+		ret.y = this->y /other;
+		ret.z = this->z /other;
 		return ret;
 	}
-
 	Vector3 operator-=(const int& other) {
 		Vector3 ret;
-		ret.x -= other;
-		ret.y -= other;
-		ret.z -= other;
+		ret.x = this->x - other;
+		ret.y = this->y -other;
+		ret.z = this->z -other;
 		return ret;
 	}
 	Vector3 operator+=(const int& other) {
 		Vector3 ret;
-		ret.x += other;
-		ret.y += other;
-		ret.z += other;
+		ret.x = this->x + other;
+		ret.y = this->y +other;
+		ret.z = this->z +other;
 		return ret;
 	}
 	Vector3 operator*=(const int& other) {
 		Vector3 ret;
-		ret.x *= other;
-		ret.y *= other;
-		ret.z *= other;
+		ret.x = this->x * other;
+		ret.y = this->y *other;
+		ret.z = this->z *other;
 		return ret;
 	}
 	Vector3 operator/=(const int& other) {
 		Vector3 ret;
-		ret.x /= other;
-		ret.y /= other;
-		ret.z /= other;
+		ret.x = this->x / other;
+		ret.y = this->y /other;
+		ret.z = this->z /other;
 		return ret;
 	}
+	
 
-	Vector3 operator+(const Vector3& other)
-	{
+	Vector3 operator-(const Vector3& other) {
 		Vector3 ret;
-		ret.x =  this->x + other.x;
-		ret.y =  this->y + other.y;
-		ret.z = this->z + other.z;
+		ret.x = this->x - other.x;
+		ret.y = this->y -other.y;
+		ret.z = this->z -other.z;
+		return ret;
+	}
+	Vector3 operator+(const Vector3& other) {
+		Vector3 ret;
+		ret.x = this->x + other.x;
+		ret.y = this->y +other.y;
+		ret.z = this->z +other.z;
+		return ret;
+	}
+	Vector3 operator*(const Vector3& other) {
+		Vector3 ret;
+		ret.x = this->x * other.x;
+		ret.y = this->y *other.y;
+		ret.z = this->z *other.z;
+		return ret;
+	}
+	Vector3 operator/(const Vector3& other) {
+		Vector3 ret;
+		ret.x = this->x / other.x;
+		ret.y = this->y /other.y;
+		ret.z = this->z /other.z;
+		return ret;
+	}
+	Vector3 operator-(const float& other) {
+		Vector3 ret;
+		ret.x = this->x - other;
+		ret.y = this->y -other;
+		ret.z = this->z -other;
+		return ret;
+	}
+	Vector3 operator+(const float& other) {
+		Vector3 ret;
+		ret.x = this->x + other;
+		ret.y = this->y +other;
+		ret.z = this->z +other;
+		return ret;
+	}
+	Vector3 operator*(const float& other) {
+		Vector3 ret;
+		ret.x = this->x * other;
+		ret.y = this->y *other;
+		ret.z = this->z *other;
+		return ret;
+	}
+	Vector3 operator/(const float& other) {
+		Vector3 ret;
+		ret.x = this->x / other;
+		ret.y = this->y /other;
+		ret.z = this->z /other;
+		return ret;
+	}
+	Vector3 operator-(const int& other) {
+		Vector3 ret;
+		ret.x = this->x - other;
+		ret.y = this->y -other;
+		ret.z = this->z -other;
+		return ret;
+	}
+	Vector3 operator+(const int& other) {
+		Vector3 ret;
+		ret.x = this->x + other;
+		ret.y = this->y +other;
+		ret.z = this->z +other;
+		return ret;
+	}
+	Vector3 operator*(const int& other) {
+		Vector3 ret;
+		ret.x = this->x * other;
+		ret.y = this->y *other;
+		ret.z = this->z *other;
+		return ret;
+	}
+	Vector3 operator/(const int& other) {
+		Vector3 ret;
+		ret.x = this->x / other;
+		ret.y = this->y /other;
+		ret.z = this->z /other;
 		return ret;
 	}
 };
