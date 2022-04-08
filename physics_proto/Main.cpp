@@ -58,8 +58,8 @@ int main()
     
         //Förslag Kaströrelse:
         float angle = 3.14/6;
-        pos.x = v0.x*cos(degreeToRadiant(30))*t;
-        pos.y = (v0.y*sin(degreeToRadiant(30)))*t - (9.82*pow(t,2))/2;
+        pos.x = v0.x*cos(deg_to_rad(30.0f))*t;
+        pos.y = (v0.y*sin(deg_to_rad(30.0f)))*t - (9.82*pow(t,2))/2;
         
          std::cout <<  "X:" << pos.x << " Y:" << pos.y << "\n";
 
