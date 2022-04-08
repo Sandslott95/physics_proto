@@ -5,10 +5,15 @@
 #include <time.h>
 #include "Vector.hpp"
 #include "Helper.h"
-
+#include "Jump.hpp"
 
 int main()
 {
+    //Test Start 
+    test jumpTest;
+    jumpTest.Start();
+    //Test End
+
     float mass = 2.f;
     const double a = -9.81; 
     int t = 0;

@@ -1,11 +1,17 @@
 #pragma once
 
+#include <iostream>
+#include <fstream>
+
 #include "Vector.hpp"
 #include "Helper.h"
 
-struct tets{
+struct test{
+
+float time = 0;
+
 float mass = 50.0f;
-Vector3 jumpSpeed = Vector3(0.0f, 5.0f, 0.0f);
+Vector3 jumpSpeed = Vector3(0.0f, 500.0f, 0.0f);
 Vector3 gravityAcceleration = Vector3(0.0f, -9.82f, 0.0f);
 Vector3 acceleration;
 Vector3 velocity;
@@ -13,8 +19,41 @@ Vector3 position;
 Vector3 resultingForce;
 Vector3 force_g;
 
+void Start(){
+    std::ofstream csv_file("whatever2.csv");
+    csv_file << "time," <<  "X," <<  " Y" <<  "\n";
+
+    //Run
+    
+    Run(csv_file);
+
+    csv_file.close();
+
+
+}
+void Run(std::ofstream& csv_file){
+    SetVelocity(Vector3(1000.0f, 1000.0f, 0.0f));
+    while(time < 16){
+
+        if(time == 7){
+            //Jump();
+        }
+        Update(time);
+
+        WriteToFile(csv_file);
+        time++;
+    }
+
+}
+void WriteToFile(std::ofstream& csv_file){
+    csv_file << time << "," <<  position.x << "," << position.y << "\n";
+}
+
 void Jump(){
     velocity += jumpSpeed;
+}
+void SetVelocity(Vector3 v){
+    velocity = v;
 }
 void SetPos(Vector3 pos){
     position = pos;
