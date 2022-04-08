@@ -13,6 +13,7 @@ float t1, t2;
 float deltlaT = 1;
 
 bool grounded = false;
+float frictionCheat = 1.0f;
 
 float mass = 50.0f;
 Vector3 jumpSpeed = Vector3(0.0f, 20.0f, 0.0f);
@@ -42,9 +43,9 @@ void Run(std::ofstream& csv_file){
         if(time == 8 || time == 13){
             Jump();
         }
-        if(!grounded){
-            Update(deltlaT);
-        }
+
+        Update(deltlaT);
+        
 
         WriteToFile(csv_file);
         time++;
@@ -72,17 +73,24 @@ void Move(Vector3 step){
     position += step;
 }
 void Update(float deltaT){
-    //Update forces
-    force_g = gravityAcceleration*mass;
-
-    //Set resulting force
-    resultingForce = force_g;
-
-    //Update acceleration
-    acceleration = resultingForce / mass;
-
-    //Update velocity
-    velocity = velocity + acceleration * deltaT;
+    if(!grounded){
+        //Update forces
+        force_g = gravityAcceleration*mass;
+        //Set resulting force
+        resultingForce = force_g;
+        //Update acceleration
+        acceleration = resultingForce / mass;
+        //Update velocity
+        velocity = velocity + acceleration * deltaT;
+    }
+    else{
+        if(velocity.x > 0){
+            velocity.x -= frictionCheat;
+        }
+        if(velocity.z > 0){
+            velocity.z -= frictionCheat;
+        }
+    } 
 
     //Update position
     position = position + velocity * deltaT;
