@@ -9,6 +9,7 @@
 struct test{
 
 float time = 0;
+float t1, t2;
 float deltlaT = 1;
 
 float mass = 50.0f;
@@ -87,6 +88,10 @@ void Update(float deltaT){
 
 Vector3 GetPos(){
     return position;
+}
+
+Vector3 GetPushVector(Vector3 enemyPos, Vector3 playerPos){
+    return playerPos-enemyPos;
 }
 };
 
